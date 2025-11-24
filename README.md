@@ -1,5 +1,5 @@
 # cart-react
-Product list with cart build with react
+Product list with cart build with react with user data fetched from local json file
 
 
 # Getting Started with Create React App

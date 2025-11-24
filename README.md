@@ -1,6 +1,6 @@
 # cart-react
 Product list with cart build with react with user data fetched from local json file
-
+responsiveness using custom css
 
 # Getting Started with Create React App
 

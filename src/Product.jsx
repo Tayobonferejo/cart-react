@@ -16,10 +16,6 @@ function Product() {
     <div>
       {products.map((product, index) => (
         <div key={index}>
-          <h2>{product.name}</h2>
-          <p>Category: {product.category}</p>
-          <p>Price: ${product.price.toFixed(2)}</p>
-
           {/* Responsive images */}
           <picture>
             <source media="(min-width:1024px)" srcSet={product.image.desktop} />
@@ -27,6 +23,11 @@ function Product() {
             <source media="(max-width:767px)" srcSet={product.image.mobile} />
             <img src={product.image.thumbnail} alt={product.name} />
           </picture>
+          
+          <h2>{product.name}</h2>
+          <p>Category: {product.category}</p>
+          <p>Price: ${product.price.toFixed(2)}</p>
+
         </div>
       ))}
     </div>

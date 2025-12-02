@@ -1,0 +1,14 @@
+.coffee-choice {
+    background-color: brown;
+    border: 2px solid black;
+    width: 300px;
+}
+
+.parent-cart {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+img {
+    width: 300px;
+}

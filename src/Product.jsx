@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 
+import "./Product.css"
+
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -15,7 +17,7 @@ function Product() {
   return (
     <div className="parent-cart">
       {products.map((product, index) => (
-        <div key={index}>
+        <div key={index} className="coffee-choice">
 
           {/* Responsive images */}
           <picture>

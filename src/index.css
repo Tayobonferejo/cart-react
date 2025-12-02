@@ -14,3 +14,8 @@ p {
   font-style: italic; /* variable italic */
   font-weight: 500;    /* works because variable font */
 }
+
+.parent-cart {
+  background-color: blue;
+  border: 2px solid black;
+}

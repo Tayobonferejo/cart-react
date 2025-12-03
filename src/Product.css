@@ -6,9 +6,17 @@
 
 .parent-cart {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto auto;
+    max-width: 60%;
 }
 
 img {
-    width: 300px;
+    width: 200px;
+}
+
+.cart-button {
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
 }

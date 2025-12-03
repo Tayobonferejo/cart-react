@@ -27,9 +27,10 @@ function Product() {
             <img src={product.image.thumbnail} alt={product.name} />
           </picture>
           {/* Add to Cart Button */} 
-          <button className="">🛒 Add to Cart </button>
-          <h2>{product.name}</h2>
-          <p>Category: {product.category}</p>
+          <button className="cart-button">🛒 Add to Cart </button>
+          <p>{product.category}</p>
+          <h3>{product.name}</h3>
+  
           <p>Price: ${product.price.toFixed(2)}</p>
         </div>
 

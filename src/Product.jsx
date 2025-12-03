@@ -31,7 +31,7 @@ function Product() {
           <p>{product.category}</p>
           <h3>{product.name}</h3>
   
-          <p>Price: ${product.price.toFixed(2)}</p>
+          <p>${product.price.toFixed(2)}</p>
         </div>
 
       ))}

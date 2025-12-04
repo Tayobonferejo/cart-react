@@ -13,10 +13,10 @@ img {
     border-radius: 5px;
 }
 
-.cart-button {
+.cart-button , .qty-container{
     width: 130px;
-    height: 30px;
-    border-radius: 15px;
+    height: 35px;
+    border-radius: 20px;
     border: none;
     position: relative;
     left: 45px;
@@ -24,9 +24,46 @@ img {
     border: 2px solid gray;
 }
 
+.cart-button {
+    font-weight: bold;
+}
+
 .cart-button:hover {
     background-color: rgb(65, 47, 47);
     color: #ffffff;
     border: none;
 
+}
+
+.qty-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 12px;
+  background: black;
+  color: white;
+}
+
+.qty-btn {
+  background: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: 2px solid whitesmoke;
+
+}
+
+.qty-btn img {
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+}
+
+.qty-number {
+  font-size: 16px;
+  font-weight: bold;
 }

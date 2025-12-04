@@ -65,11 +65,18 @@ function Product() {
               🛒 Add to Cart
             </button>
           ) : (
-            <div className="qty-container">
-              <button className="qty-btn" onClick={() => decrease(index)}><img src={minusDecrement} alt="Logo" /></button>
-              <span className="qty-number">{quantities[index]}</span>
-              <button className="qty-btn" onClick={() => increase(index)}><img src={addIncrement} alt="Logo" /></button>
-            </div>
+          <div className="qty-container">
+            <button className="qty-btn" onClick={() => decrease(index)}>
+              <img src={minusDecrement} alt="minus" />
+            </button>
+
+            <span className="qty-number">{quantities[index]}</span>
+
+            <button className="qty-btn" onClick={() => increase(index)}>
+              <img src={addIncrement} alt="plus" />
+            </button>
+          </div>
+
           )}
 
           <p>{product.category}</p>

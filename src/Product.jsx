@@ -1,18 +1,47 @@
-
 import React, { useEffect, useState } from "react";
-
-import "./Product.css"
-
+import addIncrement from "../src/assets/images/icon-increment-quantity.svg"
+import minusDecrement from "../src/assets/images/icon-decrement-quantity.svg"
+import "./Product.css";
 
 function Product() {
   const [products, setProducts] = useState([]);
 
+  // Quantity state for each product
+  const [quantities, setQuantities] = useState([]);
+
   useEffect(() => {
     fetch("/data.json")
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+        setQuantities(Array(data.length).fill(0)); // set quantity array
+      })
       .catch((err) => console.error(err));
   }, []);
+
+  const addToCart = (index) => {
+    const updated = [...quantities];
+    updated[index] = 1;
+    setQuantities(updated);
+  };
+
+  const increase = (index) => {
+    const updated = [...quantities];
+    updated[index] += 1;
+    setQuantities(updated);
+  };
+
+  const decrease = (index) => {
+    const updated = [...quantities];
+
+    if (updated[index] === 1) {
+      updated[index] = 0; // return to Add to Cart
+    } else {
+      updated[index] -= 1;
+    }
+
+    setQuantities(updated);
+  };
 
   return (
     <div className="parent-cart">
@@ -26,14 +55,28 @@ function Product() {
             <source media="(max-width:767px)" srcSet={product.image.mobile} />
             <img src={product.image.thumbnail} alt={product.name} />
           </picture>
-          {/* Add to Cart Button */} 
-          <button className="cart-button">🛒 Add to Cart </button>
+
+          {/* Add to Cart OR Increase / Decrease */}
+          {quantities[index] === 0 ? (
+            <button
+              className="cart-button"
+              onClick={() => addToCart(index)}
+            >
+              🛒 Add to Cart
+            </button>
+          ) : (
+            <div className="qty-container">
+              <button className="qty-btn" onClick={() => decrease(index)}><img src={minusDecrement} alt="Logo" /></button>
+              <span className="qty-number">{quantities[index]}</span>
+              <button className="qty-btn" onClick={() => increase(index)}><img src={addIncrement} alt="Logo" /></button>
+            </div>
+          )}
+
           <p>{product.category}</p>
           <h3>{product.name}</h3>
-  
           <p>${product.price.toFixed(2)}</p>
-        </div>
 
+        </div>
       ))}
     </div>
   );

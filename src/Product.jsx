@@ -3,7 +3,7 @@ import addIncrement from "../src/assets/images/icon-increment-quantity.svg"
 import minusDecrement from "../src/assets/images/icon-decrement-quantity.svg"
 import "./Product.css";
 
-function Product() {
+function Product({ setCart }) {
   const [products, setProducts] = useState([]);
 
   // Quantity state for each product
@@ -20,28 +20,70 @@ function Product() {
   }, []);
 
   const addToCart = (index) => {
-    const updated = [...quantities];
-    updated[index] = 1;
-    setQuantities(updated);
-  };
+      const updated = [...quantities];
+      updated[index] = 1;
+      setQuantities(updated);
+
+      const p = products[index];
+
+      setCart((prev) => ({
+        ...prev,
+        [p.name]: {
+          qty: 1,
+          price: p.price,
+          name: p.name
+        }
+      }));
+};
+
 
   const increase = (index) => {
-    const updated = [...quantities];
-    updated[index] += 1;
-    setQuantities(updated);
-  };
+      const updated = [...quantities];
+      updated[index] += 1;
+      setQuantities(updated);
 
-  const decrease = (index) => {
+      const p = products[index];
+
+      setCart((prev) => ({
+        ...prev,
+        [p.name]: {
+          ...prev[p.name],
+          qty: updated[index]
+        }
+      }));
+};
+
+
+ const decrease = (index) => {
     const updated = [...quantities];
+
+    const p = products[index];
 
     if (updated[index] === 1) {
-      updated[index] = 0; // return to Add to Cart
-    } else {
-      updated[index] -= 1;
+      updated[index] = 0;
+      setQuantities(updated);
+
+      setCart((prev) => {
+        const copy = { ...prev };
+        delete copy[p.name];
+        return copy;
+      });
+
+      return;
     }
 
+    updated[index] -= 1;
     setQuantities(updated);
-  };
+
+    setCart((prev) => ({
+      ...prev,
+      [p.name]: {
+        ...prev[p.name],
+        qty: updated[index]
+      }
+    }));
+};
+
 
   return (
     <div className="parent-cart">

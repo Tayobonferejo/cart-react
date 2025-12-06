@@ -15,7 +15,7 @@ h1 {
 
 p {
   font-family: "RedHatText", sans-serif;
-  font-style: italic; /* variable italic */
+  font-style: normal; /* variable italic */
   font-weight: 500;    /* works because variable font */
 }
 

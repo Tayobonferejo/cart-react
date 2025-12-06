@@ -14,3 +14,32 @@
 .cart > p {
     text-align: center;
 }
+
+.cart-item {
+    margin: 1rem 0;
+}
+.carbon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carbon > img {
+    width: 20px;
+}
+.cart-price {
+     display: flex;
+     justify-content: flex-start;
+     width: 90%;
+     padding: 5px 0;
+}
+
+.cart-price > p {
+    width: 25%;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}

@@ -1,13 +1,17 @@
 import "./Cart.css";
 import cartLogo from "./assets/images/illustration-empty-cart.svg";
-import carbonLogo from "./assets/images/icon-carbon-neutral.svg"
-import removeLogo from "./assets/images/icon-remove-item.svg"
+import carbonLogo from "./assets/images/icon-carbon-neutral.svg";
+import removeLogo from "./assets/images/icon-remove-item.svg";
 
-function Cart({ cart }) {
+function Cart({ cart, setCart, resetQuantity }) {
   const items = Object.values(cart);
   const isEmpty = items.length === 0;
 
   const total = items.reduce((sum, item) => sum + item.qty * item.price, 0);
+
+  const handleRemove = (itemName) => {
+    resetQuantity(itemName);
+  };
 
   return (
     <div className="cart">
@@ -20,11 +24,10 @@ function Cart({ cart }) {
         </>
       ) : (
         <>
-          {items.map((item, i) => (
+          {items.map((item) => (
             <div key={item.name} className="cart-item">
               <div className="item-block">
                 <p className="item-name">{item.name}</p>
-
                 <div className="cart-price">
                   <p>{item.qty}x</p>
                   <p className="item-price">@{item.price.toFixed(2)}</p>
@@ -32,19 +35,22 @@ function Cart({ cart }) {
                 </div>
               </div>
 
-              <img src={removeLogo} alt="remove-button" className="remove-button"/>
+              <img
+                src={removeLogo}
+                alt="remove-button"
+                className="remove-button"
+                onClick={() => handleRemove(item.name)}
+              />
             </div>
           ))}
 
-
-          {/* <hr /> */}
           <div className="total">
             <p>Order Total</p>
             <h4>${total.toFixed(2)}</h4>
           </div>
 
           <div className="carbon">
-            <img src={carbonLogo} alt=""></img>
+            <img src={carbonLogo} alt="" />
             <p>This is a carbon-neutral delivery</p>
           </div>
 

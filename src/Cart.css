@@ -47,8 +47,6 @@
 .cart-price > p:first-child {
     width: 40px;
 }
-.cart-price > p {
-}
 
 .total {
     display: flex;

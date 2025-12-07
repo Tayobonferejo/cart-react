@@ -39,18 +39,15 @@
 .cart-price {
     display: flex;
     justify-content: flex-start;
-    /* width: 90%; */
     font-size: 16px;
     padding: 5px 0;
 }
 
 
 .cart-price > p:first-child {
-    width: 20%;
+    width: 40px;
 }
 .cart-price > p {
-    /* width: 30%; */
-    border: 2px solid black;
 }
 
 .total {
@@ -85,6 +82,5 @@
 }
 
 .item-price {
-    width: 30%;
-    background-color: blue;
+    width: 70px;
 }

@@ -50,7 +50,7 @@ function App() {
       {showModal && (
         <OrderModal 
           cart={cart}
-          closeModal={() => setShowModal(false)} 
+          closeModal={() => window.location.reload()}
         />
       )}
     </>

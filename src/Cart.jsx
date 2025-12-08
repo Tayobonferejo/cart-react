@@ -3,7 +3,7 @@ import cartLogo from "./assets/images/illustration-empty-cart.svg";
 import carbonLogo from "./assets/images/icon-carbon-neutral.svg";
 import removeLogo from "./assets/images/icon-remove-item.svg";
 
-function Cart({ cart, setCart, resetQuantity }) {
+function Cart({ cart, setCart, resetQuantity , openModal}) {
   const items = Object.values(cart);
   const isEmpty = items.length === 0;
 
@@ -54,7 +54,10 @@ function Cart({ cart, setCart, resetQuantity }) {
             <p>This is a carbon-neutral delivery</p>
           </div>
 
-          <button className="order-button">Confirm Order</button>
+          <button className="order-button" onClick={openModal}>
+            Confirm Order
+          </button>
+
         </>
       )}
     </div>

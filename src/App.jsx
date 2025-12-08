@@ -1,14 +1,16 @@
 import { useState } from "react";
 import Product from './Product.jsx';
 import Cart from './Cart.jsx';
+import OrderModal from "./OrderModal.jsx";   // << add this
 import './App.css';
 
 function App() {
   const [cart, setCart] = useState({});
   const [quantities, setQuantities] = useState([]);
-  const [products, setProducts] = useState([]); // keep products in App
+  const [products, setProducts] = useState([]);
 
-  // Function to reset quantity when removing from cart
+  const [showModal, setShowModal] = useState(false);  // << modal state
+
   const resetQuantity = (name) => {
     setCart(prev => {
       const updatedCart = { ...prev };
@@ -37,7 +39,20 @@ function App() {
           setQuantities={setQuantities}
         />
       </div>
-      <Cart cart={cart} setCart={setCart} resetQuantity={resetQuantity} />
+
+      <Cart 
+        cart={cart}
+        setCart={setCart}
+        resetQuantity={resetQuantity}
+        openModal={() => setShowModal(true)}   // << pass function
+      />
+
+      {showModal && (
+        <OrderModal 
+          cart={cart}
+          closeModal={() => setShowModal(false)} 
+        />
+      )}
     </>
   );
 }

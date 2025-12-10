@@ -1,8 +1,9 @@
 .cart {
-    width: 350px;
+    width: 330px;
     height: fit-content;
     border-radius: 5px;
     padding: 2rem;
+    border: 2px solid blue;
     background-color: rgb(255, 255, 255);
 }
 

@@ -86,6 +86,7 @@ function Product({ products, setProducts, cart, setCart, quantities, setQuantiti
             <source media="(min-width:768px)" srcSet={product.image.tablet} />
             <source media="(max-width:767px)" srcSet={product.image.mobile} />
             <img src={product.image.thumbnail} alt={product.name} />
+  
           </picture>
 
           {quantities[index] === 0 ? (

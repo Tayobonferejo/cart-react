@@ -24,5 +24,16 @@ p {
   background-color: rgb(247, 237, 237);
   padding: 3rem 4rem;
   display: flex;
+  gap: 9px;
   justify-content: space-between;
+}
+
+
+@media (max-width: 600px) {
+
+    #root {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
 }
